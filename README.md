@@ -1,4 +1,4 @@
-#TLP Streamer - Host Software
+# TLP Streamer - Host Software
 
 This is a collection of utilities to use with the [TLP Streamer Gateware](https://github.com/MikeM64/tlp-streamer-fpga).
 
@@ -6,15 +6,14 @@ This is a collection of utilities to use with the [TLP Streamer Gateware](https:
 - libevent
 - [ft60x_driver](https://github.com/lambdaconcept/ft60x_driver) from LambdaConcept
 
-#Build
-```
-make
-```
+# Build
+- `make all` - Build everything
+- `make clean` - Delete all built objects
 
-##tlp_bench
+## tlp_bench
 Use this to measure round trip latency from the host, to the Screamer and back again.
 
-###Sample Output
+### Sample Output
 ```
 $ ./tlp_bench -u /dev/ft60x0 
 Starting benchmark run with 1000 packets
