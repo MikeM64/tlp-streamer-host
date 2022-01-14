@@ -382,7 +382,7 @@ static void
 tlp_streamer_print_pcie_tlp_common_header (struct pcie_tlp_header *hdr)
 {
     printf("\n"
-           "%s - Class: %u - D:%s - P:%s - %s - Order: %s - AT: %s - Len:%u\n",
+           "%s - Class: %u - D:%s - P:%s - %s - %s - AT: %s - Len:%u\n",
            tlp_streamer_fmt_type_str(hdr), hdr->traffic_class,
            Y_or_N_str(hdr->digest_enabled), Y_or_N_str(hdr->poisoned),
            snooping_state_str(hdr->attr), order_state_str(hdr->attr),
