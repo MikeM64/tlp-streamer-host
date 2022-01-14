@@ -168,7 +168,7 @@ struct tlp_streamer_tlp_pkt {
         struct pcie_3dw_mrd_data mrd3_data;
         struct pcie_4dw_mrd_data mrd4_data;
     };
-} PACKED;
+} __attribute__((packed, aligned(4)));
 
 /* Only LCR[7] == 0 register sets are implemented */
 struct uart_16550_channel_regs {
@@ -404,13 +404,6 @@ tlp_streamer_decode_pcie_tlp_common_header (const uint32_t *tlp_common_header,
     hdr->attr = (*tlp_common_header & PCIE_TLP_ATTR_MASK) >> PCIE_TLP_ATTR_SHIFT;
     hdr->at = (*tlp_common_header & PCIE_TLP_AT_MASK) >> PCIE_TLP_AT_SHIFT;
     hdr->length = (*tlp_common_header & PCIE_TLP_LENGTH_MASK) >> PCIE_TLP_LENGTH_SHIFT;
-    if (hdr->length == 0) {
-        /*
-         * All other encoded length values map 1-to-1 with their number
-         * except 0, which maps to 1024 DW length.
-         */
-        hdr->length = 1024;
-    }
 }
 
 static void
