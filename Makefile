@@ -10,3 +10,4 @@ tlp_bench: tlp_bench.c
 
 clean:
 	rm tlp_bench || 1
+	rm tlp_16550_emu || 1
